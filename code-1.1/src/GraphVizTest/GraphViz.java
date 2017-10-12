@@ -1,4 +1,5 @@
 //change for lab3
+//change for b2
 package GraphVizTest;
 
 import java.io.File;
