@@ -1,8 +1,7 @@
 //change for lab3
 package GraphVizTest;
 
-import java.awt.Component;
-import java.awt.Label;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -19,11 +18,11 @@ public class MainFrame extends JFrame implements ActionListener
 	static gra a;
 	int i=0;
 	JButton show = new JButton("Õ¹Ê¾Í¼");
-	JButton bridge = new JButton("ÇÅ½Ó´Ê");
-	JButton creat = new JButton("ÐÂÎÄ±¾");
-	JButton shortest = new JButton("×î¶ÌÂ·¾¶");
-	JButton creatrandom=new JButton("Éú³ÉÓÎ×ßÂ·¾¶");
-	JButton random = new JButton("¿ªÊ¼Ëæ»úÓÎ×ß");
+	JButton bridge = new JButton("ï¿½Å½Ó´ï¿½");
+	JButton creat = new JButton("ï¿½ï¿½ï¿½Ä±ï¿½");
+	JButton shortest = new JButton("ï¿½ï¿½ï¿½Â·ï¿½ï¿½");
+	JButton creatrandom=new JButton("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½");
+	JButton random = new JButton("ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 	JButton stop=new JButton("Í£Ö¹");
 	String randompath=null;
 	String randompathspalit[]=new String[50];
@@ -31,11 +30,11 @@ public class MainFrame extends JFrame implements ActionListener
     {
     	a=b;
     	show = new JButton("Õ¹Ê¾Í¼");
-		bridge = new JButton("ÇÅ½Ó´Ê");
-		creat = new JButton("ÐÂÎÄ±¾");
-		shortest = new JButton("×î¶ÌÂ·¾¶");
-		creatrandom=new JButton("Éú³ÉÓÎ×ßÂ·¾¶");
-		random = new JButton("¿ªÊ¼Ëæ»úÓÎ×ß");
+		bridge = new JButton("ï¿½Å½Ó´ï¿½");
+		creat = new JButton("ï¿½ï¿½ï¿½Ä±ï¿½");
+		shortest = new JButton("ï¿½ï¿½ï¿½Â·ï¿½ï¿½");
+		creatrandom=new JButton("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½");
+		random = new JButton("ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		stop=new JButton("Í£Ö¹");
 		setLayout(null);
 		setVisible(true);
@@ -66,7 +65,7 @@ public class MainFrame extends JFrame implements ActionListener
     public void actionPerformed(ActionEvent e) 
 	{
 		Object source = e.getSource();
-		if (source==show) 
+		if (source.equals(show)) 
 		{
 			a.showDirectedGraph(a);
 			try {
@@ -86,9 +85,9 @@ public class MainFrame extends JFrame implements ActionListener
 		}
 		else if (source==bridge) 
 		{
-			String words=JOptionPane.showInputDialog("ÇëÊäÈë´ý²éÑ¯µÄÇÅ½Ó´Ê"); 
+			String words=JOptionPane.showInputDialog("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Å½Ó´ï¿½"); 
 			String[] two = new String[2];
-			String ans = new String();
+			String ans;
 			String[] answer = new String[50];
 			two = words.toLowerCase().split("[^a-z]{1,}");
 			ans = gra.queryBridgeWords(a, two[0], two[1]);
@@ -119,15 +118,15 @@ public class MainFrame extends JFrame implements ActionListener
 			}
 			new output(output);
 		}
-		else if(source==creat)
+		else if(source.equals(creat))
 		{
-			 String text=JOptionPane.showInputDialog("ÇëÊäÈë´ýÉú³ÉµÄÎÄ±¾");
+			 String text=JOptionPane.showInputDialog("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½Ä±ï¿½");
 		     String ans=gra.generateNewText(a,text);
              new output(ans);
 		}
-		else if(source==shortest)
+		else if(source.equals(shortest))
 		{
-			 String word=JOptionPane.showInputDialog("ÇëÊäÈë²éÑ¯×î¶ÌÂ·¾¶µÄµ¥´Ê");
+			 String word=JOptionPane.showInputDialog("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½");
 			 String[] wordsplit=word.split("[^a-z]{1,}");
 			 int len=wordsplit.length;
 			 String answ=null;
@@ -142,7 +141,7 @@ public class MainFrame extends JFrame implements ActionListener
 				 new output(answ);
 			 }
 		}
-		else if(source==creatrandom)
+		else if(source.equals(creatrandom))
 		{
 			try {
 				randompath = gra.randomWalk(a);
@@ -151,7 +150,7 @@ public class MainFrame extends JFrame implements ActionListener
 			}
 			randompathspalit=randompath.split("[^a-z]{1,}");
 		}
-		else if(source==random)
+		else if(source.equals(random))
 		{
 			if (i < randompathspalit.length-1) {
 				System.out.print(randompathspalit[i] + " ");
@@ -159,13 +158,13 @@ public class MainFrame extends JFrame implements ActionListener
 			}
 			else if(i==randompathspalit.length-1)
 			{
-				System.out.print(randompathspalit[i] + "   "+"Ëæ»úÓÎ×ß½áÊø\n");
+				System.out.print(randompathspalit[i] + "   "+"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½ï¿½\n"); // NOPMD by Veronique on 10/18/17 7:59 PM
 				i=0;
 			}
 	    }
-		else if(source==stop)
+		else if(source.equals(stop))
 		{
-		   System.out.print("  "+"Ëæ»úÓÎ×ß½áÊø\n");
+		   System.out.print("  "+"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½ï¿½\n"); // NOPMD by Veronique on 10/18/17 7:59 PM
 		   i=0;
 		   randompath=null;
 		}
@@ -174,11 +173,11 @@ public class MainFrame extends JFrame implements ActionListener
 	{
 	   String pathandname=null;
  	   boolean i=true;
- 	   String filename=new String();
+ 	   String filename=new String(); // NOPMD by Veronique on 10/18/17 7:59 PM
  	   File  file=null;
  	   do{
  		    i=true;
-            pathandname=JOptionPane.showInputDialog("ÇëÊäÈëÎÄ¼þÂ·¾¶ÓëÃû×Ö"); 
+            pathandname=JOptionPane.showInputDialog("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"); 
 			filename = pathandname;
 			file = new File(pathandname);
 			if (!file.exists()) {
@@ -193,7 +192,8 @@ public class MainFrame extends JFrame implements ActionListener
 	public static gra createDirectedGraph(String filename)
 	{
 		gra a=new gra();
-		String str=null,source1=null;
+		String str=null;
+		String source1=null;
 		File file=new File(filename);
 		StringBuffer strbu=new StringBuffer("");
 		FileInputStream in=null;
@@ -225,7 +225,8 @@ public class MainFrame extends JFrame implements ActionListener
 		source1=new String(strbu.toString().toLowerCase());
 	    String[] source = source1.split("[^a-z]{1,}");
 	    int count=source.length;
-	    int i,j;
+	    int i;
+	    int j;
 	    a.pointnum=0;
 	    for(i=0;i<count;i++)
 	    {
@@ -242,7 +243,9 @@ public class MainFrame extends JFrame implements ActionListener
 	    		a.point[a.pointnum-1]=new String(source[i]);
 	    	}
 	    }
-	    int cou=a.pointnum,m,n;
+	    int cou=a.pointnum;
+	    int m;
+	    int n;
 	    for(i=0;i<count-1;i++)
 	    {
 	    	m=-1;
