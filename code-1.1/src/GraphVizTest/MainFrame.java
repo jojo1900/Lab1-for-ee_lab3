@@ -1,6 +1,6 @@
 //change for lab3
 package GraphVizTest;
-
+//mdfd version
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,30 +12,29 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import javax.swing.*;
 
-public class MainFrame extends JFrame implements ActionListener
-{
+public class MainFrame extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	static gra a;
 	int i=0;
-	JButton show = new JButton("չʾͼ");
-	JButton bridge = new JButton("�ŽӴ�");
-	JButton creat = new JButton("���ı�");
-	JButton shortest = new JButton("���·��");
-	JButton creatrandom=new JButton("��������·��");
-	JButton random = new JButton("��ʼ�������");
-	JButton stop=new JButton("ֹͣ");
+	JButton show = new JButton("展示图");
+	JButton bridge = new JButton("锟脚接达拷");
+	JButton creat = new JButton("锟斤拷锟侥憋拷");
+	JButton shortest = new JButton("锟斤拷锟铰凤拷锟�");
+	JButton creatrandom=new JButton("锟斤拷锟斤拷锟斤拷锟斤拷路锟斤拷");
+	JButton random = new JButton("锟斤拷始锟斤拷锟斤拷锟斤拷锟�");
+	JButton stop=new JButton("停止");
 	String randompath=null;
 	String randompathspalit[]=new String[50];
     MainFrame(gra b) 
     {
     	a=b;
-    	show = new JButton("չʾͼ");
-		bridge = new JButton("�ŽӴ�");
-		creat = new JButton("���ı�");
-		shortest = new JButton("���·��");
-		creatrandom=new JButton("��������·��");
-		random = new JButton("��ʼ�������");
-		stop=new JButton("ֹͣ");
+    	show = new JButton("展示图");
+		bridge = new JButton("锟脚接达拷");
+		creat = new JButton("锟斤拷锟侥憋拷");
+		shortest = new JButton("锟斤拷锟铰凤拷锟�");
+		creatrandom=new JButton("锟斤拷锟斤拷锟斤拷锟斤拷路锟斤拷");
+		random = new JButton("锟斤拷始锟斤拷锟斤拷锟斤拷锟�");
+		stop=new JButton("停止");
 		setLayout(null);
 		setVisible(true);
 		setSize(1200, 1000);
@@ -65,8 +64,7 @@ public class MainFrame extends JFrame implements ActionListener
     public void actionPerformed(ActionEvent e) 
 	{
 		Object source = e.getSource();
-		if (source.equals(show)) 
-		{
+		if (source.equals(show)) {
 			a.showDirectedGraph(a);
 			try {
 				Thread.sleep(500);
@@ -85,7 +83,7 @@ public class MainFrame extends JFrame implements ActionListener
 		}
 		else if (source==bridge) 
 		{
-			String words=JOptionPane.showInputDialog("���������ѯ���ŽӴ�"); 
+			String words=JOptionPane.showInputDialog("锟斤拷锟斤拷锟斤拷锟斤拷锟窖拷锟斤拷沤哟锟�"); 
 			String[] two = new String[2];
 			String ans;
 			String[] answer = new String[50];
@@ -120,13 +118,13 @@ public class MainFrame extends JFrame implements ActionListener
 		}
 		else if(source.equals(creat))
 		{
-			 String text=JOptionPane.showInputDialog("����������ɵ��ı�");
+			 String text=JOptionPane.showInputDialog("锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷傻锟斤拷谋锟�");
 		     String ans=gra.generateNewText(a,text);
              new output(ans);
 		}
 		else if(source.equals(shortest))
 		{
-			 String word=JOptionPane.showInputDialog("�������ѯ���·���ĵ���");
+			 String word=JOptionPane.showInputDialog("锟斤拷锟斤拷锟斤拷锟窖拷锟斤拷路锟斤拷锟侥碉拷锟斤拷");
 			 String[] wordsplit=word.split("[^a-z]{1,}");
 			 int len=wordsplit.length;
 			 String answ=null;
@@ -158,13 +156,13 @@ public class MainFrame extends JFrame implements ActionListener
 			}
 			else if(i==randompathspalit.length-1)
 			{
-				System.out.print(randompathspalit[i] + "   "+"������߽���\n"); // NOPMD by Veronique on 10/18/17 7:59 PM
+				System.out.print(randompathspalit[i] + "   "+"锟斤拷锟斤拷锟斤拷呓锟斤拷锟絓n"); // NOPMD by Veronique on 10/18/17 7:59 PM
 				i=0;
 			}
 	    }
 		else if(source.equals(stop))
 		{
-		   System.out.print("  "+"������߽���\n"); // NOPMD by Veronique on 10/18/17 7:59 PM
+		   System.out.print("  "+"锟斤拷锟斤拷锟斤拷呓锟斤拷锟絓n"); // NOPMD by Veronique on 10/18/17 7:59 PM
 		   i=0;
 		   randompath=null;
 		}
@@ -177,7 +175,7 @@ public class MainFrame extends JFrame implements ActionListener
  	   File  file=null;
  	   do{
  		    i=true;
-            pathandname=JOptionPane.showInputDialog("�������ļ�·��������"); 
+            pathandname=JOptionPane.showInputDialog("锟斤拷锟斤拷锟斤拷锟侥硷拷路锟斤拷锟斤拷锟斤拷锟斤拷"); 
 			filename = pathandname;
 			file = new File(pathandname);
 			if (!file.exists()) {
